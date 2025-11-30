@@ -1,0 +1,54 @@
+{
+  "text": "This is a test document about AI in healthcare.",
+  "metadata": {
+    "title": "Advances in AI for Healthcare",
+    "authors": [
+      "John Doe",
+      "Jane Smith"
+    ],
+    "publication_date": "2024-02-15",
+    "abstract": "This paper discusses the latest AI applications in healthcare.",
+    "source": "arXiv",
+    "url": "https://arxiv.org/abs/1234.5678",
+    "source_type": "unknown",
+    "timestamp": "2025-04-10T00:50:52.655822"
+  },
+  "chunks": [
+    {
+      "text": "This is a test chunk about AI applications.",
+      "metadata": {
+        "title": "Advances in AI for Healthcare",
+        "authors": [
+          "John Doe",
+          "Jane Smith"
+        ],
+        "publication_date": "2024-02-15",
+        "abstract": "This paper discusses the latest AI applications in healthcare.",
+        "source": "arXiv",
+        "url": "https://arxiv.org/abs/1234.5678",
+        "source_type": "unknown",
+        "timestamp": "2025-04-10T00:50:52.655822",
+        "chunk_index": 0,
+        "total_chunks": 2
+      }
+    },
+    {
+      "text": "This is another test chunk about healthcare.",
+      "metadata": {
+        "title": "Advances in AI for Healthcare",
+        "authors": [
+          "John Doe",
+          "Jane Smith"
+        ],
+        "publication_date": "2024-02-15",
+        "abstract": "This paper discusses the latest AI applications in healthcare.",
+        "source": "arXiv",
+        "url": "https://arxiv.org/abs/1234.5678",
+        "source_type": "unknown",
+        "timestamp": "2025-04-10T00:50:52.655822",
+        "chunk_index": 1,
+        "total_chunks": 2
+      }
+    }
+  ]
+}

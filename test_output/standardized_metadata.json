@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Advances in AI for Healthcare",
+    "authors": [
+      "John Doe",
+      "Jane Smith"
+    ],
+    "publication_date": "2024-02-15",
+    "abstract": "This paper discusses the latest AI applications in healthcare.",
+    "source": "arXiv",
+    "url": "https://arxiv.org/abs/1234.5678",
+    "source_type": "unknown",
+    "timestamp": "2025-04-10T00:50:39.444607"
+  },
+  {
+    "title": "Deep Learning for Natural Language Processing",
+    "authors": [
+      "John Smith",
+      "Jane Doe"
+    ],
+    "publication_date": "2023-05-15",
+    "url": "https://arxiv.org/abs/2305.12345",
+    "arxiv_id": "2305.12345",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "abstract": "This paper explores deep learning techniques for NLP tasks.",
+    "source": "arXiv",
+    "source_type": "academic",
+    "timestamp": "2025-04-10T00:50:39.444607"
+  },
+  {
+    "domain": "example.com",
+    "title": "The Future of AI",
+    "publication_date": "2023-10-01",
+    "authors": [
+      "Tech Writer"
+    ],
+    "source": "Web",
+    "source_type": "web",
+    "timestamp": "2025-04-10T00:50:39.444607"
+  }
+]

@@ -1,0 +1,41 @@
+Metadata-Version: 2.4
+Name: deep-research-engine
+Version: 0.1.0
+Summary: A query processing engine for deep research
+Author: Your Name
+Description-Content-Type: text/markdown
+Requires-Dist: groq>=0.1.0
+Requires-Dist: numpy>=1.22.0
+Requires-Dist: requests>=2.28.0
+Requires-Dist: PyYAML>=6.0
+Requires-Dist: logging>=0.5.1.2
+Provides-Extra: test
+Requires-Dist: pytest>=7.3.1; extra == "test"
+Requires-Dist: unittest2>=1.1.0; extra == "test"
+Dynamic: author
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: summary
+
+# Deep Research Engine
+
+## Overview
+Deep Research Engine is an AI-powered research module that retrieves, ranks, and extracts relevant data from academic and web sources. It outperforms existing solutions like OpenAI's Deep Research, Gemini, and Perplexity by focusing on metadata traceability, citation integration, and high-quality structured reports.
+
+## Features
+- Multi-platform data retrieval (Arxiv, Google Scholar, PubMed, Web)
+- Hybrid ranking (Semantic Relevance, Authority, Recency)
+- Chunk extraction with metadata traceability
+- FastAPI-based API for seamless integration
+- ChromaDB for vector storage, DuckDB for analytics
+
+
+# Navigate into project
+cd deep-research-engine
+
+# Set up environment
+python -m venv venv
+source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+pip install -r requirements.txt

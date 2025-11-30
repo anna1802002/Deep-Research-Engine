@@ -1,0 +1,14 @@
+[2025-03-26 09:23:56,284] INFO - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-03-26 09:23:56,685] INFO - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-03-26 09:23:56,686] WARNING - deep_research.query_processing.vectorizer - Falling back to mock embedding as API access is not configured
+[2025-03-26 09:24:11,862] INFO - httpx - HTTP Request: POST http://localhost:8000/api/v1/context "HTTP/1.1 200 OK"
+[2025-03-26 09:24:17,846] INFO - deep_research.ranking.system - Ranking 1 chunks
+[2025-03-26 09:24:17,846] INFO - deep_research.ranking.content_selector - Scoring 1 chunks for relevance
+[2025-03-26 09:24:18,559] INFO - deep_research.ranking.relevance_scorer - Scored 1 chunks for relevance
+[2025-03-26 09:24:18,560] INFO - deep_research.ranking.content_selector - Calculating recency scores
+[2025-03-26 09:24:18,561] INFO - deep_research.ranking.content_selector - Computing authority scores
+[2025-03-26 09:24:18,561] INFO - deep_research.ranking.rank_aggregator - Computed authority scores for 1 chunks
+[2025-03-26 09:24:18,562] INFO - deep_research.ranking.content_selector - Calculating final scores
+[2025-03-26 09:24:18,562] INFO - deep_research.ranking.rank_aggregator - Calculated final scores for 1 chunks
+[2025-03-26 09:24:18,563] INFO - deep_research.ranking.content_selector - Selecting top 10 chunks
+[2025-03-26 09:24:18,563] INFO - deep_research.ranking.system - Ranked 1 chunks in 0.72s

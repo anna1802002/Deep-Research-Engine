@@ -1,0 +1,37 @@
+app:
+  name: "Deep Research Engine"
+  version: "0.2.0"
+  debug: true
+
+database:
+  vector_store: "chroma"  # Options: "chroma", "faiss"
+  analytics_store: "duckdb"
+
+retrieval:
+  max_results: 50
+  timeout: 10  # API call timeout in seconds
+  use_mcp: true  # Set to true to use MCP instead of direct sources
+  
+  # Source settings (used when MCP is disabled)
+  sources:
+    - "arxiv"
+    - "pubmed" 
+    - "google_scholar"
+    - "web"
+
+ranking:
+  model: "all-MiniLM-L6-v2"  # Embedding model for ranking
+  weight_semantic: 0.5
+  weight_authority: 0.3
+  weight_recency: 0.2
+
+logging:
+  level: "INFO"
+  format: "[%(asctime)s] %(levelname)s - %(message)s"
+  log_file: "logs/deep_research.log"
+
+# MCP configuration
+mcp:
+  endpoint: "http://localhost:8001/mcp"  # Will be replaced with actual endpoint when available
+  timeout: 30  # Seconds
+  max_chunks: 100

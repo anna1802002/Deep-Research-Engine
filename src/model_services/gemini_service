@@ -1,0 +1,122 @@
+import os
+import io
+import yaml
+import google.generativeai as genai
+from PIL import Image
+
+class GeminiService:
+    def __init__(self):
+        # Load API key from YAML config file
+        config_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__)))), "config")
+        config_path = os.path.join(config_dir, "api_keys.yaml")
+        
+        try:
+            with open(config_path, 'r') as file:
+                config = yaml.safe_load(file)
+                api_key = config.get("GOOGLE_API_KEY")
+                
+            if not api_key:
+                raise ValueError("Google API key not found in config/api_keys.yaml")
+            
+            # Initialize the Gemini client
+            genai.configure(api_key=api_key)
+            # Use gemini-1.5-flash for both text and multi-modal capabilities
+            self.text_model = genai.GenerativeModel('gemini-1.5-flash')
+            self.vision_model = genai.GenerativeModel('gemini-1.5-flash')
+            
+        except Exception as e:
+            print(f"Error initializing Gemini service: {e}")
+            # Create placeholder models that return error messages
+            self.text_model = None
+            self.vision_model = None
+    
+    def generate(self, prompt, model=None, stream=False):
+        """
+        Send a prompt to Gemini and get a response.
+        
+        Args:
+            prompt (str): The prompt to send
+            model (str, optional): Not used for Gemini, kept for compatibility
+            stream (bool): Whether to stream the response
+            
+        Returns:
+            str: The model's response
+        """
+        if self.text_model is None:
+            return "Error: Gemini service not properly initialized"
+            
+        try:
+            if stream:
+                response = self.text_model.generate_content(prompt, stream=True)
+                # For streaming, you'd handle this differently in your application
+                # This is just a placeholder for compatibility
+                return "Streaming not fully implemented"
+            else:
+                response = self.text_model.generate_content(prompt)
+                return response.text
+        except Exception as e:
+            print(f"Error calling Gemini API: {e}")
+            return f"Error: {str(e)}"
+            
+    def process_image(self, image_path, prompt=None):
+        """
+        Extract text and information from an image using Gemini's vision capabilities.
+        
+        Args:
+            image_path (str): Path to the image file
+            prompt (str, optional): Specific instruction for processing the image
+                
+        Returns:
+            str: Extracted text and information from the image
+        """
+        if self.vision_model is None:
+            return "Error: Gemini service not properly initialized"
+            
+        try:
+            # Open and prepare the image
+            image = Image.open(image_path)
+            
+            # Default prompt if none provided
+            if prompt is None:
+                prompt = "Extract and transcribe all text content from this image. If there are tables, convert them to a structured format."
+            
+            # Generate content with the image
+            response = self.vision_model.generate_content([prompt, image])
+            return response.text
+        except Exception as e:
+            print(f"Error processing image with Gemini: {e}")
+            return f"Error: {str(e)}"
+    
+    def extract_table(self, image_path):
+        """
+        Specifically extract and structure table data from an image.
+        
+        Args:
+            image_path (str): Path to the image containing a table
+            
+        Returns:
+            str: Structured representation of the table (CSV or markdown format)
+        """
+        if self.vision_model is None:
+            return "Error: Gemini service not properly initialized"
+            
+        try:
+            # Open and prepare the image
+            image = Image.open(image_path)
+            
+            # Specific prompt for table extraction
+            prompt = """
+            Extract the table from this image and format it as CSV data.
+            Format the output as follows:
+            1. First line should contain column headers separated by commas
+            2. Each subsequent line should represent a row with values separated by commas
+            3. Preserve the exact text and numbers from the table
+            4. If there are multiple tables, extract each one separately and indicate where each table begins and ends
+            """
+            
+            # Generate content with the image
+            response = self.vision_model.generate_content([prompt, image])
+            return response.text
+        except Exception as e:
+            print(f"Error extracting table with Gemini: {e}")
+            return f"Error: {str(e)}"
